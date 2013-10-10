@@ -1,0 +1,22 @@
+<staff>
+	<user>
+		<staffID> </staffID>
+		<password> </password>
+		<isAdmin> </isAdmin>
+		<dateRegistered> </dateRegistered>
+		<details>
+			<name>
+				<firstName> </firstName>
+				<lastName> </lastName>
+			</name>
+			<email> </email>
+			<address>
+				<streetAddress> </streetAddress>
+				<suburb> </suburb>
+				<postcode> </postcode>
+				<state> </state>
+			</address>
+			<phone> </phone>
+		</details>
+	</user>
+</staff>

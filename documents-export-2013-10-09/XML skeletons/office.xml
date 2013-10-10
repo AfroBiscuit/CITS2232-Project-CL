@@ -1,0 +1,18 @@
+<office>
+      <name></name>
+      <officecode></officecode>
+      <officetype></officetype>
+      <typecode></typecode>
+      <address>
+         <streetaddress></streetaddress>
+         <suburb></suburb>
+         <postcode></postcode>
+         <state></state>
+      </address>
+      <postal></postal>
+      <openhours></openhours>
+      <location>
+         <longitude></longitude>
+         <latitude></latitude>
+      </location>
+   </office>
