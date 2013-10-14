@@ -35,7 +35,7 @@ body {
 <body>
 <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr bgcolor="#3366CC">
-    <td colspan="3" rowspan="2" bgcolor="#FFFFFF"><img src="centrelink2" width="456" height="133" /></td>
+    <td colspan="3" rowspan="2" bgcolor="#FFFFFF"><img src="centrelink2.jpg" width="456" height="133" /></td>
     <td width="290" height="112" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><div align="left">Centrelink Offices</div></td>
     <td width="38" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo">&nbsp;</td>
     <td width="4" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FF9900" class="style1" id="logo">&nbsp;</td>
@@ -64,26 +64,41 @@ body {
   </tr>
 
   <tr bgcolor="#CCFF99">
-  	<td height="19" colspan="7" bgcolor="#FF9900">&nbsp;</td>
+  	<td height="19" colspan="7" bgcolor="#FF9900"><div align="left">&nbsp;<a href="officelist.html">Office List</a></div></td>
   </tr>
  <tr>
     <td colspan="7" bgcolor="#FF9900"><img src="mm_spacer.gif" alt="" width="1" height="1" border="0" /></td>
   </tr>
 
  <tr>
+   <td height="59" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+   <td bgcolor="#FFFFFF" valign="top"><h1>Personal Details
+       <label></label>
+   </h1></td>
+   <td colspan="5" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+ </tr>
+ <tr>
     <td width="13" height="468" valign="top" bgcolor="#FFFFFF"><span class="style2"></span></td>
-    <td width="439" bgcolor="#FFFFFF" valign="top"><h1 align="left">Details
-        <label></label>
-</h1>
-      <p>First Name: <xsl:value-of select="/staff/user/details/name/firstName"/></p>
-      <p>Last Name: <xsl:value-of select="/staff/user/details/name/lastName"/></p>
-      <p>Email: <xsl:value-of select="/staff/user/details/email"/></p>
-      <p>Street Address: <xsl:value-of select="/staff/user/details/address/streetAddress"/></p>
-      <p>Suburb: <xsl:value-of select="/staff/user/details/address/suburb"/></p>
-      <p>Postcode: <xsl:value-of select="/staff/user/details/address/postcode"/></p>
-      <p>State: <xsl:value-of select="/staff/user/details/address/state"/></p>
-      <p>Phone: <xsl:value-of select="/staff/user/details/phone"/></p>
-    <p align="center"><a href="edit.html">Edit</a></p></td>
+    <td width="439" bgcolor="#FFFFFF" valign="top"><form id="form5" name="form5" method="post" action="editdetails.html">
+      <p>First Name: <?php $con = mysql_pconnect("ec2-54-252-239-168.ap-southeast-2.compute.amazonaws.com:3306","root");
+mysql_select_db("project");
+$sql = "SELECT firstName FROM staff WHERE staffID = '2'";
+$query = mysql_query($sql,$con);
+$row = mysql_fetch_assoc($query);
+echo $row['firstName'];?></p>
+      <p>Last Name: </p>
+      <p>Email: </p>
+      <p>Street Address: </p>
+      <p>Suburb: </p>
+      <p>Postcode: </p>
+      <p>State: </p>
+      <p>Phone: </p>
+    <p align="center">
+      <label>
+      <input type="submit" name="edit" id="edit" value="Edit" />
+      </label>
+    </p>
+    </form></td>
     <td colspan="5" valign="top" bgcolor="#FFFFFF"><span class="style2"><img src="mm_spacer.gif" alt="" width="305" height="1" border="0" /><br />
 	&nbsp;<br />
 	&nbsp;<br />	
