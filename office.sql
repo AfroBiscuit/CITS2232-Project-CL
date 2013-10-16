@@ -1,4 +1,4 @@
-use test2232;
+use test;
 CREATE TABLE IF NOT EXISTS`office` (
   `officeCode` VARCHAR(4) NOT NULL,
   `name` VARCHAR(45) NULL,
