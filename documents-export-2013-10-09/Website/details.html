@@ -3,7 +3,7 @@
 <!-- DW6 -->
 <head>
 <!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
-<title>Home Page</title>
+<title>Details</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="mm_travel2.css" type="text/css" />
 <script language="JavaScript" type="text/javascript">
@@ -64,14 +64,14 @@ body {
   </tr>
 
   <tr bgcolor="#CCFF99">
-  	<td height="19" colspan="7" bgcolor="#FF9900"><div align="left">&nbsp;<a href="officelist.html">Office List</a></div></td>
+  	<td height="19" colspan="7" bgcolor="#FF9900"><div align="left">&nbsp;<a href="officelist.html">Offices</a></div></td>
   </tr>
  <tr>
     <td colspan="7" bgcolor="#FF9900"><img src="mm_spacer.gif" alt="" width="1" height="1" border="0" /></td>
   </tr>
 
  <tr>
-   <td height="59" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+   <td height="51" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
    <td bgcolor="#FFFFFF" valign="top"><h1>Personal Details
        <label></label>
    </h1></td>
@@ -80,12 +80,7 @@ body {
  <tr>
     <td width="13" height="468" valign="top" bgcolor="#FFFFFF"><span class="style2"></span></td>
     <td width="439" bgcolor="#FFFFFF" valign="top"><form id="form5" name="form5" method="post" action="editdetails.html">
-      <p>First Name: <?php $con = mysql_pconnect("ec2-54-252-239-168.ap-southeast-2.compute.amazonaws.com:3306","root");
-mysql_select_db("project");
-$sql = "SELECT firstName FROM staff WHERE staffID = '2'";
-$query = mysql_query($sql,$con);
-$row = mysql_fetch_assoc($query);
-echo $row['firstName'];?></p>
+      <p>First Name: </p>
       <p>Last Name: </p>
       <p>Email: </p>
       <p>Street Address: </p>

@@ -3,7 +3,7 @@
 <!-- DW6 -->
 <head>
 <!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
-<title>Home Page</title>
+<title>Admin Offices Management</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="mm_travel2.css" type="text/css" />
 <script language="JavaScript" type="text/javascript">
@@ -64,7 +64,7 @@ body {
   </tr>
 
   <tr bgcolor="#CCFF99">
-  	<td height="19" colspan="8" bgcolor="#FF9900">&nbsp;<a href="details.html">Details</a></td>
+  	<td height="19" colspan="8" bgcolor="#FF9900">&nbsp;<a href="details.html">Details</a>&nbsp;&nbsp;&nbsp;<a href="full_list_admin.html">All Offices</a></td>
   </tr>
  <tr>
     <td colspan="8" bgcolor="#FF9900"><img src="mm_spacer.gif" alt="" width="1" height="1" border="0" /></td>
@@ -72,51 +72,28 @@ body {
 
  <tr>
    <td height="42" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-   <td bgcolor="#FFFFFF" valign="top"><h1>Office List</h1></td>
+   <td bgcolor="#FFFFFF" valign="top"><h1>My Offices</h1></td>
    <td colspan="6" valign="top" bgcolor="#FFFFFF"><h1>Search Offices</h1></td>
  </tr>
  <tr>
    <td height="27" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-   <td bgcolor="#FFFFFF" valign="top"><div align="center"><form id="form7" name="form7" method="post" action="newoffice.html">
+   <td bgcolor="#FFFFFF" valign="top">&nbsp;</td>
+   <td colspan="6" valign="top" bgcolor="#FFFFFF"><div align="center"><form id="form7" name="form7" method="post" action="new_office.html">
      <input type="submit" name="newoffice" id="newoffice" value="New Office" />
    </form></div></td>
-   <td colspan="6" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
  </tr>
  <tr>
     <td width="13" height="504" valign="top" bgcolor="#FFFFFF"><span class="style2"></span></td>
-    <td width="439" bgcolor="#FFFFFF" valign="top"><form id="form6" name="form6" method="post" action="index.html"><p align="left">Office Code:</p>
-      <p>Office Name:</p>
-      <p>Office Type:</p>
-      <p>Type Code:</p>
-      <p>Street Address: </p>
-      <p>Suburb: </p>
-      <p>Postcode: </p>
-      <p>State: </p>
-      <p>Postal: </p>
-      <p>Open Hours:</p>
-      <p>Longitude:</p>
-      <p>Latitude:</p>
-    <p align="center">
-      <label>
-      <input type="submit" name="edit" id="edit" value="Edit" />
-      </label>
-    </p>
-    </form></td>
+    <td width="439" bgcolor="#FFFFFF" valign="top"><p><a href="office_admin.html">Office Name</a></p>
+    <p><a href="office_admin.html">Office Name</a></p>
+    <p><a href="office_admin.html">Office Name</a></p></td>
     <td colspan="6" valign="top" bgcolor="#FFFFFF"><span class="style2"><img src="mm_spacer.gif" alt="" width="305" height="1" border="0" /><br />
-	</span><form id="form3" name="form3" method="post" action="searchresults.html">Office Code:
-	<label>
-	<input type="text" name="searchcode" id="searchcode" />
-	</label>
-	<p>Office Name: 
+	</span><form id="form3" name="form3" method="post" action="searchresults_admin.html">
+	  <p>Office Name: 
 	  <label>
 	  <input type="text" name="searchname" id="searchname" />
 	  </label>
-	</p>
-      <p>Office Type: 
-        <label>
-        <input type="text" name="searchtype" id="searchtype" />
-        </label>
-      </p>
+	  </p>
       <p>Type Code:
         <label>
         <input type="text" name="searchtypecode" id="searchtypecode" />
@@ -141,6 +118,7 @@ body {
         <label></label>
         <label>
         <select name="searchstate" id="searchstate">
+          <option value=""></option>
           <option value="ACT">ACT</option>
           <option value="NSW">NSW</option>
           <option value="NT">NT</option>
@@ -149,12 +127,7 @@ body {
           <option value="TAS">TAS</option>
           <option value="SA">SA</option>
           <option value="VIC">VIC</option>
-                </select>
-        </label>
-      </p>
-      <p>Postal: 
-        <label>
-        <input type="text" name="searchpostal" id="searchpostal" />
+          </select>
         </label>
       </p>
       <p>Within Radius: 
