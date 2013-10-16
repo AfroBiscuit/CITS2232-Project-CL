@@ -1,7 +1,7 @@
 <?php
 //Connecting to sql db.
  $connect = mysqli_connect('127.0.0.1', 'root') or die(mysql_error(mysqli_connect())); 
- mysqli_select_db($connect, "test2232"); 
+ mysqli_select_db($connect, "test"); 
 //Sending form data to sql db.
 $officeCode = $_POST['officeCode'];
 $name = $_POST['name'];
@@ -17,5 +17,6 @@ $postal = $_POST['postal'];
 //$lat = $_POST['latitude'];
 mysqli_query($connect,"INSERT INTO office (officeCode, name, officeType, typeCode, streetAddress, suburb, postcode, state, openHours, postal) VALUES ('$officeCode', '$name', '$officeType', '$typeCode', '$streetAddress', '$suburb', '$postcode', '$state', '$openHours', '$postal') 
 ON DUPLICATE KEY UPDATE name = '$name', officeType = '$officeType', typeCode = '$typeCode', streetAddress = '$streetAddress', suburb = '$suburb', postcode = '$postcode', state = '$state', openHours = '$openHours', postal = '$postal'") or die(mysql_error());//, '$officeType', '$typeCode', '$streetAddress', '$suburb', '$postcode', '$state', '$openHours', '$postal', '$long', '$lat')");
+mysqli_close();
 header('Location: details_user.html')
 ?>

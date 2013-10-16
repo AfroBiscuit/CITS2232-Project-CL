@@ -36,7 +36,7 @@ body {
 <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr bgcolor="#3366CC">
     <td colspan="3" rowspan="2" bgcolor="#FFFFFF"><img src="centrelink2.jpg" width="456" height="133" /></td>
-    <td width="290" height="111" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><div align="left">Centrelink Offices</div></td>
+    <td width="290" height="112" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><div align="left">Centrelink Offices</div></td>
     <td width="38" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo">&nbsp;</td>
     <td width="4" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FF9900" class="style1" id="logo">&nbsp;</td>
     <th align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><form id="form1" name="form1" method="post" action="homepage.html">
@@ -72,31 +72,28 @@ body {
 
  <tr>
     <td width="13" height="468" valign="top" bgcolor="#FFFFFF"><span class="style2"></span></td>
-    <td width="439" bgcolor="#FFFFFF" valign="top"><h1 align="left">Edit Office Details</h1>
-	<form action="update_2232_user.php" method="post">
-<form action="update_2232_office.php" method="post">
-    <p>Office Code:</p>
-    <input type="text" name="officeCode">
-    <p>Name:</p>
-	<input type="text" name="name">
-	<p>Office Type:</p>
-	<input type="text" name="officeType">
-	<p>Type Code:</p>
-	<input type="text" name="typeCode">
-	<p>Street Address:</p>
-	<input type="text" name="streetAddress">
-	<p>Suburb:</p>
-	<input type="text" name="suburb">
-	<p>Post Code:</p>
-	<input type="text" name="postcode">
-	<p>State:</p>
-	<input type="text" name="state">
-	<p>Opening Hours:</p>
-	<input type="text" name="openHours">
-	<p>Postal Address:</p>
-	<input type="text" name="postal">&nbsp;<br />
-	<input type="submit" name="Update" id="Update" value="Update">
-</form>
+    <td width="439" bgcolor="#FFFFFF" valign="top"><h1 align="left">Your Offices
+        <label></label>
+</h1>
+      <?php
+$connection = mysql_connect('cits2232db.uwac2g.com', '20927611', '20927611');
+mysql_select_db("test");
+$id = mysql_query("SELECT userID FROM staff");
+
+
+$query = "SELECT officeCode, name FROM offices"; //You don't need a ; like you do in SQL
+$result = mysql_query($query);
+
+echo "<table>"; // start a table tag in the HTML
+
+while($row = mysql_fetch_array($result)){   //Creates a loop to loop through results
+echo "<tr><td>" . $row['officeCode'] . "</td><td>" . $row['name'] . "</td></tr><a href="edit.html">Edit</a></p>";  //$row['index'] the index here is a field name
+}
+
+echo "</table>"; //Close the table in HTML
+
+mysql_close(); //Make sure to close out the database connection
+?>
     <td colspan="5" valign="top" bgcolor="#FFFFFF"><span class="style2"><img src="mm_spacer.gif" alt="" width="305" height="1" border="0" /><br />
 	&nbsp;<br />
 	&nbsp;<br />	
