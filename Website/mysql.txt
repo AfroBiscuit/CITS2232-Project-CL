@@ -1,0 +1,1 @@
+ec2-54-252-239-168.ap-southeast-2.compute.amazonaws.com:3306
