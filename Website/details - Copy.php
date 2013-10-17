@@ -3,7 +3,7 @@
 <!-- DW6 -->
 <head>
 <!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
-<title>Edit User Details</title>
+<title>Home Page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="mm_travel2.css" type="text/css" />
 <script language="JavaScript" type="text/javascript">
@@ -35,8 +35,8 @@ body {
 <body>
 <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr bgcolor="#3366CC">
-    <td colspan="3" rowspan="2" bgcolor="#FFFFFF"><img src="centrelink2.jpg" width="456" height="133" /></td>
-    <td width="290" height="111" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><div align="left">Centrelink Offices</div></td>
+    <td colspan="3" rowspan="2" bgcolor="#FFFFFF"><img src="centrelink2" width="456" height="133" /></td>
+    <td width="290" height="112" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><div align="left">Centrelink Offices</div></td>
     <td width="38" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo">&nbsp;</td>
     <td width="4" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FF9900" class="style1" id="logo">&nbsp;</td>
     <th align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><form id="form1" name="form1" method="post" action="index.html">
@@ -64,61 +64,26 @@ body {
   </tr>
 
   <tr bgcolor="#CCFF99">
-  	<td height="19" colspan="7" bgcolor="#FF9900">&nbsp;<a href="details.html">Details</a>&nbsp;&nbsp;&nbsp;<a href="officelist.html">Offices</a></td>
+  	<td height="19" colspan="7" bgcolor="#FF9900">&nbsp;</td>
   </tr>
  <tr>
     <td colspan="7" bgcolor="#FF9900"><img src="mm_spacer.gif" alt="" width="1" height="1" border="0" /></td>
   </tr>
 
  <tr>
-   <td height="49" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-   <td bgcolor="#FFFFFF" valign="top"><h1>Edit Personal Details</h1></td>
-   <td colspan="5" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
- </tr>
- <tr>
     <td width="13" height="468" valign="top" bgcolor="#FFFFFF"><span class="style2"></span></td>
-    <td width="439" bgcolor="#FFFFFF" valign="top"><form id="form4" name="form4" method="post" action="details.html">
-      <p>First Name:
-        <label>
-          <input type="text" name="First Name" id="First Name" size="30"/>
-          </label>
-      </p>
-      <p>Last Name:
-        <input type="text" name="Last Name" id="Last Name" size="30"/>
-      </p>
-      <p>Email:
-        <input type="text" name="Email" id="Email" size="40"/>
-      </p>
-      <p>Street Address:
-        <input type="text" name="Street Address" id="Street Address" size="50"/>
-      </p>
-      <p>Suburb:
-        <input type="text" name="Suburb" id="Suburb" size="30"/>
-      </p>
-      <p>Postcode:
-        <input type="text" name="Postcode" id="Postcode" size="10"/>
-      </p>
-      <p>State:
-        <select name="searchstate" id="searchstate">
-          <option value=""></option>
-          <option value="ACT">ACT</option>
-          <option value="NSW">NSW</option>
-          <option value="NT">NT</option>
-          <option value="QLD">QLD</option>
-          <option value="WA">WA</option>
-          <option value="TAS">TAS</option>
-          <option value="SA">SA</option>
-          <option value="VIC">VIC</option>
-                </select>
-      </p>
-      <p>Phone:
-        <input type="text" name="Phone" id="Phone" size="25"/>
-      </p>
-    <p align="center">
-      <label>
-      <input type="submit" name="done" id="done" value="Update" />
-      </label>
-    </p></form></td>
+    <td width="439" bgcolor="#FFFFFF" valign="top"><h1 align="left">Details
+        <label></label>
+</h1>
+      <p>First Name: <?php echo "hi" ?></p>
+      <p>Last Name: <xsl:value-of select="/staff/user/details/name/lastName"/></p>
+      <p>Email: <xsl:value-of select="/staff/user/details/email"/></p>
+      <p>Street Address: <xsl:value-of select="/staff/user/details/address/streetAddress"/></p>
+      <p>Suburb: <xsl:value-of select="/staff/user/details/address/suburb"/></p>
+      <p>Postcode: <xsl:value-of select="/staff/user/details/address/postcode"/></p>
+      <p>State: <xsl:value-of select="/staff/user/details/address/state"/></p>
+      <p>Phone: <xsl:value-of select="/staff/user/details/phone"/></p>
+    <p align="center"><a href="edit.html">Edit</a></p></td>
     <td colspan="5" valign="top" bgcolor="#FFFFFF"><span class="style2"><img src="mm_spacer.gif" alt="" width="305" height="1" border="0" /><br />
 	&nbsp;<br />
 	&nbsp;<br />	

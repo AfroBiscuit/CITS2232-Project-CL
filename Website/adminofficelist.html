@@ -91,27 +91,36 @@ body {
 	</span><form id="form3" name="form3" method="post" action="searchresults_admin.html">
 	  <p>Office Name: 
 	  <label>
-	  <input type="text" name="searchname" id="searchname" />
+	  <input type="text" name="searchname" id="searchname" size="30" />
 	  </label>
 	  </p>
       <p>Type Code:
         <label>
-        <input type="text" name="searchtypecode" id="searchtypecode" />
+        <select name="searchtypecode" id="searchtypecode">
+          <option value=""></option>
+          <option value="R">R</option>
+          <option value="RA">RA</option>
+          <option value="I">I</option>
+          <option value="IO">IO</option>
+          <option value="D">D</option>
+          <option value="C">C</option>
+          <option value="CB">CB</option>
+          </select>
         </label>
       </p>
       <p>Street Address: 
         <label>
-        <input type="text" name="searchstreet" id="searchstreet" />
+        <input type="text" name="searchstreet" id="searchstreet" size="50" />
         </label>
       </p>
       <p>Suburb: 
         <label>
-        <input type="text" name="searchsuburb" id="searchsuburb" />
+        <input type="text" name="searchsuburb" id="searchsuburb" size="30" />
         </label>
       </p>
       <p>Postcode: 
         <label>
-        <input type="text" name="searchpostcode" id="searchpostcode" />
+        <input type="text" name="searchpostcode" id="searchpostcode" size="10" />
         </label>
       </p>
       <p>State: 
@@ -132,7 +141,7 @@ body {
       </p>
       <p>Within Radius: 
         <label>
-        <input type="text" name="searchradius" id="searchradius" />
+        <input type="text" name="searchradius" id="searchradius" size="10" />
         </label>
       </p>
       <p align="center">
