@@ -152,7 +152,7 @@ echo $row[0];
 ?></p>
       <p align="center">
           <label>
-          <input type="submit" name="edit" id="edit" value="Edit" />
+          <input name = "officeCode" type = "hidden" id = "officeCode" value = "<?php echo $officeCode ?>" /><input type="submit" name="edit" id="edit" value="Edit" />
           </label>
         </p>
     </form></td>

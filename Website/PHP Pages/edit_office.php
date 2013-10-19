@@ -80,17 +80,38 @@ body {
     <td width="439" bgcolor="#FFFFFF" valign="top"><form id="form4" name="form4" method="post" action="office_admin.php">
       <p align="left">Office Code: 
         <label>
-        <input type="text" name="Office Code" id="Office Code" size="7" />
+        <input type="text" name="Office Code" id="Office Code" size="7" value="<?php
+$officeCode = $_POST['officeCode'];
+$connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
+mysqli_select_db($connection, "centrelink");
+echo $officeCode;
+?>"/>
         </label>
       </p>
       <p>Office Name:
-        <input type="text" name="Office Name" id="Office Name" size="30" />
+        <input type="text" name="Office Name" id="Office Name" size="30" value="<?php
+$query = "SELECT name FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?>"/>
       </p>
       <p>Office Type:
-        <input type="text" name="Office Type" id="Office Type" size="30" />
+        <input type="text" name="Office Type" id="Office Type" size="30" value="<?php
+$query = "SELECT officeType FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?>"/>
       </p>
       <p>Type Code:
         <select name="Type Code" id="Type Code">
+        <option selected="selected"><?php
+$query = "SELECT typeCode FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></option>
           <option value=""></option>
           <option value="R">R</option>
           <option value="RA">RA</option>
@@ -102,16 +123,37 @@ body {
           </select>
       </p>
       <p>Street Address: 
-        <input type="text" name="Street Address" id="Street Address" size="50" />
+        <input type="text" name="Street Address" id="Street Address" size="50" value="<?php
+$query = "SELECT streetAddress FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?>"/>
       </p>
       <p>Suburb: 
-        <input type="text" name="Suburb" id="Suburb" size="30" />
+        <input type="text" name="Suburb" id="Suburb" size="30" value="<?php
+$query = "SELECT suburb FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?>"/>
       </p>
       <p>Postcode: 
-        <input type="text" name="Postcode" id="Postcode" size="10" />
+        <input type="text" name="Postcode" id="Postcode" size="10" value="<?php
+$query = "SELECT postcode FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?>"/>
       </p>
       <p>State: 
         <select name="State" id="State">
+        <option selected="selected"><?php
+$query = "SELECT state FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></option>
           <option value=""></option>
           <option value="ACT">ACT</option>
           <option value="NSW">NSW</option>
@@ -125,16 +167,37 @@ body {
 
       </p>
       <p>Postal: 
-        <input type="text" name="Postal" id="Postal" size="40"/>
+        <input type="text" name="Postal" id="Postal" size="40" value="<?php
+$query = "SELECT postal FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?>"/>
       </p>
       <p>Open Hours:
-        <input type="text" name="Open Hours" id="Open Hours" size="50"/>
+        <input type="text" name="Open Hours" id="Open Hours" size="50" value="<?php
+$query = "SELECT openHours FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?>"/>
       </p>
       <p>Longitude:
-        <input type="text" name="Longitude" id="Longitude" />
+        <input type="text" name="Longitude" id="Longitude" value="<?php
+$query = "SELECT longtitude FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?>"/>
       </p>
       <p>Latitude:
-        <input type="text" name="Latitude" id="Latitude" />
+        <input type="text" name="Latitude" id="Latitude" value="<?php
+$query = "SELECT latitude FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+mysqli_close($connection);
+?>"/>
       </p>      
       <p>
         <label>
