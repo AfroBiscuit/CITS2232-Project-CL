@@ -3,7 +3,7 @@
 <!-- DW6 -->
 <head>
 <!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
-<title>Details</title>
+<title>Office Details</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="mm_travel2.css" type="text/css" />
 <script language="JavaScript" type="text/javascript">
@@ -36,10 +36,10 @@ body {
 <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr bgcolor="#3366CC">
     <td colspan="3" rowspan="2" bgcolor="#FFFFFF"><img src="centrelink2.jpg" width="456" height="133" /></td>
-    <td width="290" height="112" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><div align="left">Centrelink Offices</div></td>
+    <td width="290" height="111" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><div align="left">Centrelink Offices</div></td>
     <td width="38" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo">&nbsp;</td>
-    <td width="4" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FF9900" class="style1" id="logo">&nbsp;</td>
-    <th align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><form id="form1" name="form1" method="post" action="logout.php">
+    <td width="4" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FF9900" class="style1" id="logo">&nbsp;</td><form id="form1" name="form1" method="post" action="logout.php">
+    <th align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo">
       <div align="center">
         <p class="style3">Logged in as <?php session_start(); $logID = $_SESSION['logID']; echo $logID ?></p>
         <p class="style3">
@@ -64,85 +64,103 @@ body {
   </tr>
 
   <tr bgcolor="#CCFF99">
-  	<td height="19" colspan="7" bgcolor="#FF9900"><div align="left">&nbsp;<a href="officelistcheck.php">Offices</a></div></td>
+  	<td height="19" colspan="7" bgcolor="#FF9900">&nbsp;<a href="mydetails.php">Details</a>&nbsp;&nbsp;&nbsp;<a href="officelistcheck.php">Offices</a></td>
   </tr>
  <tr>
     <td colspan="7" bgcolor="#FF9900"><img src="mm_spacer.gif" alt="" width="1" height="1" border="0" /></td>
   </tr>
 
  <tr>
-   <td height="51" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-   <td bgcolor="#FFFFFF" valign="top"><h1>Personal Details
-       <label></label>
-   </h1></td>
-   <td colspan="5" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+   <td height="36" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+   <td bgcolor="#FFFFFF" valign="top"><h1>Office Details</h1></td>
+   <td colspan="5" valign="top" bgcolor="#FFFFFF"><h1>Staff Member List</h1></td>
  </tr>
  <tr>
     <td width="13" height="468" valign="top" bgcolor="#FFFFFF"><span class="style2"></span></td>
-    <td width="439" bgcolor="#FFFFFF" valign="top"><form id="form5" name="form5" method="post" action="editdetails.php">
-      <p>First Name: <?php
-$staffID = $_SESSION['staffID'];
+    <td width="439" bgcolor="#FFFFFF" valign="top"><p align="left">Office Code: <?php
+$officeCode = $_POST['officeCode'];
 $connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
 mysqli_select_db($connection, "centrelink");
-$query = "SELECT firstName FROM staff WHERE staffID=$staffID";
+echo $officeCode;
+?></p>
+      <p>Office Name: <?php
+$query = "SELECT name FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
 ?></p>
-      <p>Last Name: <?php
-$query = "SELECT lastName FROM staff WHERE staffID=$staffID";
+      <p>Office Type: <?php
+$query = "SELECT officeType FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
 ?></p>
-      <p>Email: <?php
-$query = "SELECT email FROM staff WHERE staffID=$staffID";
+      <p>Type Code: <?php
+$query = "SELECT typeCode FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
 ?></p>
       <p>Street Address: <?php
-$query = "SELECT streetAddress FROM staff WHERE staffID=$staffID";
+$query = "SELECT streetAddress FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
 ?></p>
       <p>Suburb: <?php
-$query = "SELECT suburb FROM staff WHERE staffID=$staffID";
+$query = "SELECT suburb FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
 ?></p>
       <p>Postcode: <?php
-$query = "SELECT postcode FROM staff WHERE staffID=$staffID";
+$query = "SELECT postcode FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
 ?></p>
       <p>State: <?php
-$query = "SELECT state FROM staff WHERE staffID=$staffID";
+$query = "SELECT state FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
 ?></p>
-      <p>Phone: <?php
-$query = "SELECT phone FROM staff WHERE staffID=$staffID";
+      <p>Postal: <?php
+$query = "SELECT postal FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
-mysqli_close($connection);
 ?></p>
-    <p align="center">
-      <label>
-      <input type="submit" name="edit" id="edit" value="Edit" />
-      </label>
-    </p>
-    </form></td>
-    <td colspan="5" valign="top" bgcolor="#FFFFFF"><span class="style2"><img src="mm_spacer.gif" alt="" width="305" height="1" border="0" /><br />
-	&nbsp;<br />
-	&nbsp;<br />	
-	<br />	  
-	</span></td>
+      <p>Open Hours: <?php
+$query = "SELECT openHours FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></p>
+      <p>Longitude: <?php
+$query = "SELECT longtitude FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></p>
+      <p>Latitude: <?php
+$query = "SELECT latitude FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></p></td>
+    <td colspan="5" valign="top" bgcolor="#FFFFFF"><?php
+$query = "SELECT firstName, lastName, staffID FROM staff WHERE staffID in (SELECT staffID FROM memberships WHERE officeCode=\"$officeCode\")";
+$result = mysqli_query($connection, $query);
+while($row = mysqli_fetch_array($result,MYSQLI_NUM)) {
+echo "<p>";
+echo $row[0],$row[1];
+echo "</p>";
+}
+mysqli_close($connection);?>
+    <form id="form7" name="form7" method="post" action="office.php"><p align="center">
+      <input type="submit" name="join_office2" id="join_office2" value="Join Office" />
+    </p></form></td>
   </tr>
   <tr>
     <td width="13" height="25" bgcolor="#FFFFFF">&nbsp;</td>

@@ -3,7 +3,7 @@
 <!-- DW6 -->
 <head>
 <!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
-<title>Offices</title>
+<title>Search Results</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="mm_travel2.css" type="text/css" />
 <script language="JavaScript" type="text/javascript">
@@ -64,105 +64,39 @@ body {
   </tr>
 
   <tr bgcolor="#CCFF99">
-  	<td height="19" colspan="8" bgcolor="#FF9900">&nbsp;<a href="mydetails.php">Details</a>&nbsp;&nbsp;&nbsp;<a href="full_list_admin.php">All Offices</a></td>
+  	<td height="19" colspan="8" bgcolor="#FF9900">&nbsp;<a href="mydetails.php">Details</a>&nbsp;&nbsp;&nbsp;<a href="officelist.php">Offices</a></td>
   </tr>
  <tr>
     <td colspan="8" bgcolor="#FF9900"><img src="mm_spacer.gif" alt="" width="1" height="1" border="0" /></td>
   </tr>
 
  <tr>
-   <td height="42" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-   <td bgcolor="#FFFFFF" valign="top"><h1>My Offices</h1></td>
-   <td colspan="6" valign="top" bgcolor="#FFFFFF"><h1>Search Offices</h1></td>
- </tr>
- <tr>
-   <td height="27" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-   <td bgcolor="#FFFFFF" valign="top">&nbsp;</td>
-   <td colspan="6" valign="top" bgcolor="#FFFFFF"><div align="center"><form id="form7" name="form7" method="post" action="new_office.php">
-     <input type="submit" name="newoffice" id="newoffice" value="New Office" />
-   </form></div></td>
+   <td height="39" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+   <td bgcolor="#FFFFFF" valign="top"><h1>Search Results</h1></td>
+   <td colspan="6" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
  </tr>
  <tr>
     <td width="13" height="504" valign="top" bgcolor="#FFFFFF"><span class="style2"></span></td>
-    <td width="439" bgcolor="#FFFFFF" valign="top"><?php
-$staffID=$logID;
-$connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
+    <td width="439" bgcolor="#FFFFFF" valign="top"><p><?php
+	$name = $_POST['searchname'];
+	$typecode = $_POST['searchtypecode'];
+	$street = $_POST['searchstreet'];
+	$suburb = $_POST['searchsuburb'];
+	$postcode = $_POST['searchpostcode'];
+	$state = $_POST['searchstate'];
+	$radius = $_POST['searchradius'];
+	$connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
 mysqli_select_db($connection, "centrelink");
-$query = "SELECT name, officeCode FROM offices WHERE officeCode in (SELECT officecode from memberships where staffid=$staffID)";
+$query = "SELECT name, officeCode FROM offices WHERE name LIKE '%$name%' and streetaddress LIKE '%$street%' and suburb LIKE '%$suburb%' and postcode LIKE '%$postcode%' and state LIKE '%$state%'";
 $result = mysqli_query($connection, $query);
 echo "<p>";
 while($row = mysqli_fetch_array($result,MYSQLI_NUM)) {
-echo "<form id=\"office\" name=\"office\" method=\"post\" action=\"office_admin.php\"><input name=\"$row[0]\" type=\"submit\" id=\"$row[0]\" value=\"$row[0]\" /><input name=\"officeCode\" type=\"hidden\" id=\"officeCode\" value=\"$row[1]\" /></form>" ;
+echo "<form id=\"office\" name=\"office\" method=\"post\" action=\"office.php\"><input name=\"$row[0]\" type=\"submit\" id=\"$row[0]\" value=\"$row[0]\" /><input name=\"officeCode\" type=\"hidden\" id=\"officeCode\" value=\"$row[1]\" /></form>" ;
 }
 echo "</p>";
 mysqli_close($connection);
-?></td>
-    <td colspan="6" valign="top" bgcolor="#FFFFFF"><span class="style2"><img src="mm_spacer.gif" alt="" width="305" height="1" border="0" /><br />
-	</span><form id="form3" name="form3" method="post" action="searchresults_admin.php">
-	  <p>Office Name: 
-	  <label>
-	  <input type="text" name="searchname" id="searchname" size="30" />
-	  </label>
-	  </p>
-      <p>Type Code:
-        <label>
-        <select name="searchtypecode" id="searchtypecode">
-          <option value=""></option>
-          <option value="R">R</option>
-          <option value="RA">RA</option>
-          <option value="I">I</option>
-          <option value="IO">IO</option>
-          <option value="D">D</option>
-          <option value="C">C</option>
-          <option value="CB">CB</option>
-          </select>
-        </label>
-      </p>
-      <p>Street Address: 
-        <label>
-        <input type="text" name="searchstreet" id="searchstreet" size="50" />
-        </label>
-      </p>
-      <p>Suburb: 
-        <label>
-        <input type="text" name="searchsuburb" id="searchsuburb" size="30" />
-        </label>
-      </p>
-      <p>Postcode: 
-        <label>
-        <input type="text" name="searchpostcode" id="searchpostcode" size="10" />
-        </label>
-      </p>
-      <p>State: 
-        <label></label>
-        <label>
-        <select name="searchstate" id="searchstate">
-          <option value=""></option>
-          <option value="ACT">ACT</option>
-          <option value="NSW">NSW</option>
-          <option value="NT">NT</option>
-          <option value="QLD">QLD</option>
-          <option value="WA">WA</option>
-          <option value="TAS">TAS</option>
-          <option value="SA">SA</option>
-          <option value="VIC">VIC</option>
-          </select>
-        </label>
-      </p>
-      <p>Within Radius: 
-        <label>
-        <input type="text" name="searchradius" id="searchradius" size="10" />
-        </label>
-      </p>
-      <p align="center">
-        <label>
-        <input type="submit" name="search" id="search" value="Search" />
-        </label>
-      </p></form>
-      <span class="style2"><br />
-&nbsp;<br />	
-	<br />	  
-	  </span></td>
+    ?></p></td>
+    <td colspan="6" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
   </tr>
   <tr>
     <td width="13" height="25" bgcolor="#FFFFFF">&nbsp;</td>

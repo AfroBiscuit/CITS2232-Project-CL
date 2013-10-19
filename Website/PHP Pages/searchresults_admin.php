@@ -39,9 +39,9 @@ body {
     <td width="290" height="112" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><div align="left">Centrelink Offices</div></td>
     <td width="38" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo">&nbsp;</td>
     <td width="4" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FF9900" class="style1" id="logo">&nbsp;</td>
-    <th align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><form id="form1" name="form1" method="post" action="index.html">
+    <th align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><form id="form1" name="form1" method="post" action="logout.php">
       <div align="center">
-        <p class="style3">Logged in as </p>
+        <p class="style3">Logged in as <?php session_start(); $logID = $_SESSION['logID']; echo $logID ?></p>
         <p class="style3">
           <label>
           <input type="submit" name="Logout" id="Logout" value="Logout" />
@@ -64,7 +64,7 @@ body {
   </tr>
 
   <tr bgcolor="#CCFF99">
-  	<td height="19" colspan="8" bgcolor="#FF9900">&nbsp;<a href="details.php">Details</a>&nbsp;&nbsp;&nbsp;<a href="adminofficelist.php">Offices</a>&nbsp;&nbsp;&nbsp;<a href="full_list_admin.php">All Offices</a></td>
+  	<td height="19" colspan="8" bgcolor="#FF9900">&nbsp;<a href="mydetails.php">Details</a>&nbsp;&nbsp;&nbsp;<a href="officelistcheck.php">Offices</a>&nbsp;&nbsp;&nbsp;<a href="full_list_admin.php">All Offices</a></td>
   </tr>
  <tr>
     <td colspan="8" bgcolor="#FF9900"><img src="mm_spacer.gif" alt="" width="1" height="1" border="0" /></td>
@@ -85,9 +85,9 @@ body {
 	$postcode = $_POST['searchpostcode'];
 	$state = $_POST['searchstate'];
 	$radius = $_POST['searchradius'];
-	$connection = mysqli_connect('127.0.0.1', 'root');
-mysqli_select_db($connection, "project");
-$query = "SELECT name, officeCode FROM office WHERE name LIKE '%$name%' and typeCode LIKE '%$typecode%' and streetAddress LIKE '%$street%' and suburb LIKE '%$suburb%' and postcode LIKE '%$postcode%' and state LIKE '%$state%'";
+	$connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
+mysqli_select_db($connection, "centrelink");
+$query = "SELECT name, officeCode FROM offices WHERE name LIKE '%$name%' and streetaddress LIKE '%$street%' and suburb LIKE '%$suburb%' and postcode LIKE '%$postcode%' and state LIKE '%$state%'";
 $result = mysqli_query($connection, $query);
 echo "<p>";
 while($row = mysqli_fetch_array($result,MYSQLI_NUM)) {

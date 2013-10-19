@@ -3,7 +3,7 @@
 <!-- DW6 -->
 <head>
 <!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
-<title>Details</title>
+<title>Edit User Details</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="mm_travel2.css" type="text/css" />
 <script language="JavaScript" type="text/javascript">
@@ -36,7 +36,7 @@ body {
 <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr bgcolor="#3366CC">
     <td colspan="3" rowspan="2" bgcolor="#FFFFFF"><img src="centrelink2.jpg" width="456" height="133" /></td>
-    <td width="290" height="112" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><div align="left">Centrelink Offices</div></td>
+    <td width="290" height="111" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><div align="left">Centrelink Offices</div></td>
     <td width="38" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo">&nbsp;</td>
     <td width="4" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FF9900" class="style1" id="logo">&nbsp;</td>
     <th align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><form id="form1" name="form1" method="post" action="logout.php">
@@ -64,23 +64,23 @@ body {
   </tr>
 
   <tr bgcolor="#CCFF99">
-  	<td height="19" colspan="7" bgcolor="#FF9900"><div align="left">&nbsp;<a href="officelistcheck.php">Offices</a></div></td>
+  	<td height="19" colspan="7" bgcolor="#FF9900">&nbsp;<a href="mydetails.php">Details</a>&nbsp;&nbsp;&nbsp;<a href="officelistcheck.php">Offices</a></td>
   </tr>
  <tr>
     <td colspan="7" bgcolor="#FF9900"><img src="mm_spacer.gif" alt="" width="1" height="1" border="0" /></td>
   </tr>
 
  <tr>
-   <td height="51" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-   <td bgcolor="#FFFFFF" valign="top"><h1>Personal Details
-       <label></label>
-   </h1></td>
+   <td height="49" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+   <td bgcolor="#FFFFFF" valign="top"><h1>Edit Personal Details</h1></td>
    <td colspan="5" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
  </tr>
  <tr>
     <td width="13" height="468" valign="top" bgcolor="#FFFFFF"><span class="style2"></span></td>
-    <td width="439" bgcolor="#FFFFFF" valign="top"><form id="form5" name="form5" method="post" action="editdetails.php">
-      <p>First Name: <?php
+    <td width="439" bgcolor="#FFFFFF" valign="top"><form id="form4" name="form4" method="post" action="details.php">
+      <p>First Name:
+        <label>
+          <input type="text" name="First Name" id="First Name" size="30" value="<?php
 $staffID = $_SESSION['staffID'];
 $connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
 mysqli_select_db($connection, "centrelink");
@@ -88,56 +88,82 @@ $query = "SELECT firstName FROM staff WHERE staffID=$staffID";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
-?></p>
-      <p>Last Name: <?php
+?>"/>
+          </label>
+      </p>
+      <p>Last Name:
+        <input type="text" name="Last Name" id="Last Name" size="30" value="<?php
 $query = "SELECT lastName FROM staff WHERE staffID=$staffID";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
-?></p>
-      <p>Email: <?php
+?>"/>
+      </p>
+      <p>Email:
+        <input type="text" name="Email" id="Email" size="40" value="<?php
 $query = "SELECT email FROM staff WHERE staffID=$staffID";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
-?></p>
-      <p>Street Address: <?php
+?>"/>
+      </p>
+      <p>Street Address:
+        <input type="text" name="Street Address" id="Street Address" size="50" value="<?php
 $query = "SELECT streetAddress FROM staff WHERE staffID=$staffID";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
-?></p>
-      <p>Suburb: <?php
+?>"/>
+      </p>
+      <p>Suburb:
+        <input type="text" name="Suburb" id="Suburb" size="30" value="<?php
 $query = "SELECT suburb FROM staff WHERE staffID=$staffID";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
-?></p>
-      <p>Postcode: <?php
+?>"/>
+      </p>
+      <p>Postcode:
+        <input type="text" name="Postcode" id="Postcode" size="10" value="<?php
 $query = "SELECT postcode FROM staff WHERE staffID=$staffID";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
-?></p>
-      <p>State: <?php
+?>"/>
+      </p>
+      <p>State:
+        <select name="searchstate" id="searchstate" >
+          <option selected="selected"><?php
 $query = "SELECT state FROM staff WHERE staffID=$staffID";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
-?></p>
-      <p>Phone: <?php
+?></option>
+          <option value=""></option>
+          <option value="ACT">ACT</option>
+          <option value="NSW">NSW</option>
+          <option value="NT">NT</option>
+          <option value="QLD">QLD</option>
+          <option value="WA">WA</option>
+          <option value="TAS">TAS</option>
+          <option value="SA">SA</option>
+          <option value="VIC">VIC</option>
+                </select>
+      </p>
+      <p>Phone:
+        <input type="text" name="Phone" id="Phone" size="25" value="<?php
 $query = "SELECT phone FROM staff WHERE staffID=$staffID";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
 mysqli_close($connection);
-?></p>
+?>"/>
+      </p>
     <p align="center">
       <label>
-      <input type="submit" name="edit" id="edit" value="Edit" />
+      <input type="submit" name="done" id="done" value="Update" />
       </label>
-    </p>
-    </form></td>
+    </p></form></td>
     <td colspan="5" valign="top" bgcolor="#FFFFFF"><span class="style2"><img src="mm_spacer.gif" alt="" width="305" height="1" border="0" /><br />
 	&nbsp;<br />
 	&nbsp;<br />	
