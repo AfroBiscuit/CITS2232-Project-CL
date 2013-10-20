@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS`offices` (
   `postal` VARCHAR(90) NULL,
   `longtitude` FLOAT(10) NULL,
   `latitude` FLOAT(10) NULL,
+  `dateRegistered` DATETIME NULL,
   UNIQUE INDEX `officeCode_UNIQUE` (`officeCode` ASC),
   PRIMARY KEY (`officeCode`));
   
@@ -23,6 +24,7 @@ INTO TABLE offices
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 (officecode, name, officetype, typecode, streetaddress, suburb, postcode, state, postal, openhours, longtitude, latitude);
+UPDATE TABLE `offices` SET `dateRegistered` NOW()
 
 #Creating Table `staff`
 CREATE TABLE IF NOT EXISTS `staff` (
