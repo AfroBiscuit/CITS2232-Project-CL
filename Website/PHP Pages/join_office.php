@@ -6,8 +6,8 @@ mysqli_select_db($connection, "centrelink");
 session_start();
 $staffID = $_SESSION['staffID'];
 $officeID = $_SESSION['officeID'];
-mysqli_query($connection,"INSERT INTO memberships (staffID, officeCode, isManager) VALUES ('$staffID', '$officeID', '0')
-ON DUPLICATE KEY UPDATE staffID = '$staffID', officeCode = '$officeID', isManager = '0'") or die(mysql_error());
+mysqli_query($connection,"INSERT INTO memberships (staffID, officeCode, isManager) VALUES ('$staffID', '$officeID', 0)
+ON DUPLICATE KEY UPDATE staffID = '$staffID', officeCode = '$officeID', isManager = 0") or die(mysql_error());
 mysqli_close();
 header('Location: officeredirect.php')
 ?>
