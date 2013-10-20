@@ -158,7 +158,7 @@ echo $row[0],$row[1];
 echo "</p>";
 }
 mysqli_close($connection);?>
-    <form id="form7" name="form7" method="post" action="office.php"><p align="center">
+    <form id="form7" name="form7" method="post" action="join_office.php"><p align="center">
       <input type="submit" name="join_office2" id="join_office2" value="Join Office" />
     </p></form></td>
   </tr>
