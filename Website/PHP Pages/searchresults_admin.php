@@ -91,7 +91,7 @@ $query = "SELECT name, officeCode FROM offices WHERE name LIKE '%$name%' and str
 $result = mysqli_query($connection, $query);
 echo "<p>";
 while($row = mysqli_fetch_array($result,MYSQLI_NUM)) {
-echo "<form id=\"office\" name=\"office\" method=\"post\" action=\"office_admin.php\"><input name=\"$row[0]\" type=\"submit\" id=\"$row[0]\" value=\"$row[0]\" /><input name=\"officeCode\" type=\"hidden\" id=\"officeCode\" value=\"$row[1]\" /></form>" ;
+echo "<form id=\"office\" name=\"office\" method=\"post\" action=\"office_admincheck.php\"><input name=\"$row[0]\" type=\"submit\" id=\"$row[0]\" value=\"$row[0]\" /><input name=\"officeCode\" type=\"hidden\" id=\"officeCode\" value=\"$row[1]\" /></form>" ;
 }
 echo "</p>";
 mysqli_close($connection);

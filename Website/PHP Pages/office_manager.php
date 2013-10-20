@@ -65,7 +65,7 @@ body {
   </tr>
 
   <tr bgcolor="#CCFF99">
-  	<td height="19" colspan="7" bgcolor="#FF9900">&nbsp;<a href="details.php">Details</a>&nbsp;&nbsp;&nbsp;<a href="managerofficelist.php">Offices</a></td>
+  	<td height="19" colspan="7" bgcolor="#FF9900">&nbsp;<a href="details.php">Details</a>&nbsp;&nbsp;&nbsp;<a href="officelistcheck.php">Offices</a></td>
   </tr>
  <tr>
     <td colspan="7" bgcolor="#FF9900"><img src="mm_spacer.gif" alt="" width="1" height="1" border="0" /></td>
@@ -78,33 +78,93 @@ body {
  </tr>
  <tr>
     <td width="13" height="468" valign="top" bgcolor="#FFFFFF"><span class="style2"></span></td>
-    <td width="439" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF"><form id="form6" name="form6" method="post" action="edit_office.php">
-      <p align="left">Office Code:</p>
-      <p>Office Name:</p>
-      <p>Office Type:</p>
-      <p>Type Code:</p>
-      <p>Street Address: </p>
-      <p>Suburb: </p>
-      <p>Postcode: </p>
-      <p>State: </p>
-      <p>Postal: </p>
-      <p>Open Hours:</p>
-      <p>Longitude:</p>
-      <p>Latitude:</p>
+    <td width="439" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF"><form id="form6" name="form6" method="post" action="edit_officecheck.php">
+      <p align="left">Office Code: <?php
+$officeCode = $_SESSION['officeID'];
+$connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
+mysqli_select_db($connection, "centrelink");
+echo $officeCode;
+?></p>
+      <p>Office Name: <?php
+$query = "SELECT name FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></p>
+      <p>Office Type: <?php
+$query = "SELECT officeType FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></p>
+      <p>Type Code: <?php
+$query = "SELECT typeCode FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></p>
+      <p>Street Address: <?php
+$query = "SELECT streetAddress FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></p>
+      <p>Suburb: <?php
+$query = "SELECT suburb FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></p>
+      <p>Postcode: <?php
+$query = "SELECT postcode FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></p>
+      <p>State: <?php
+$query = "SELECT state FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></p>
+      <p>Postal: <?php
+$query = "SELECT postal FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></p>
+      <p>Open Hours: <?php
+$query = "SELECT openHours FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></p>
+      <p>Longitude: <?php
+$query = "SELECT longtitude FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></p>
+      <p>Latitude: <?php
+$query = "SELECT latitude FROM offices WHERE officeCode=\"$officeCode\"";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+echo $row[0];
+?></p>
       <p align="center">
           <label>
-          <input type="submit" name="edit" id="edit" value="Edit" />
+          <input name = "officeCode" type = "hidden" id = "officeCode" value = "<?php echo $officeCode ?>" /><input type="submit" name="edit" id="edit" value="Edit" />
           </label>
         </p>
     </form></td>
     <td colspan="5" valign="top" bgcolor="#FFFFFF"><?php
 $query = "SELECT firstName, lastName, staffID FROM staff WHERE staffID in (SELECT staffID FROM memberships WHERE officeCode=\"$officeCode\")";
 $result = mysqli_query($connection, $query);
-echo "<p>";
 while($row = mysqli_fetch_array($result,MYSQLI_NUM)) {
-echo "<form id=\"staff\" name=\"staff\" method=\"post\" action=\"admindetails.php\"><input name=\"$row[0] $row[1]\" type=\"submit\" id=\"$row[0] $row[1]\" value=\"$row[0] $row[1]\" /><input name=\"staffID\" type=\"hidden\" id=\"staffID\" value=\"$row[2]\" /></form>" ;
-}
+echo "<p>";
+echo $row[0],$row[1];
 echo "</p>";
+}
 mysqli_close($connection);?>
     <form id="form7" name="form7" method="post" action="office_manager.php"><p align="center">
       <input type="submit" name="join_office" id="join_office" value="Join Office" />

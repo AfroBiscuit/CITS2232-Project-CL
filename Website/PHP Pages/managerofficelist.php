@@ -65,7 +65,7 @@ body {
   </tr>
 
   <tr bgcolor="#CCFF99">
-  	<td height="19" colspan="8" bgcolor="#FF9900">&nbsp;<a href="details.html">Details</a></td>
+  	<td height="19" colspan="8" bgcolor="#FF9900">&nbsp;<a href="mydetails.php">Details</a></td>
   </tr>
  <tr>
     <td colspan="8" bgcolor="#FF9900"><img src="mm_spacer.gif" alt="" width="1" height="1" border="0" /></td>
@@ -86,7 +86,7 @@ $query = "SELECT name, officeCode FROM offices WHERE officeCode in (SELECT offic
 $result = mysqli_query($connection, $query);
 echo "<p>";
 while($row = mysqli_fetch_array($result,MYSQLI_NUM)) {
-echo "<form id=\"office\" name=\"office\" method=\"post\" action=\"office_manager.php\"><input name=\"$row[0]\" type=\"submit\" id=\"$row[0]\" value=\"$row[0]\" /><input name=\"officeCode\" type=\"hidden\" id=\"officeCode\" value=\"$row[1]\" /></form>" ;
+echo "<form id=\"office\" name=\"office\" method=\"post\" action=\"office_managercheck.php\"><input name=\"$row[0]\" type=\"submit\" id=\"$row[0]\" value=\"$row[0]\" /><input name=\"officeCode\" type=\"hidden\" id=\"officeCode\" value=\"$row[1]\" /></form>" ;
 }
 echo "</p>";
 mysqli_close($connection);
