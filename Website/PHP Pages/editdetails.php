@@ -77,7 +77,7 @@ body {
  </tr>
  <tr>
     <td width="13" height="468" valign="top" bgcolor="#FFFFFF"><span class="style2"></span></td>
-    <td width="439" bgcolor="#FFFFFF" valign="top"><form id="form4" name="form4" method="post" action="details.php">
+    <td width="439" bgcolor="#FFFFFF" valign="top"><form id="form4" name="form4" method="post" action="update_2232_user.php">
       <p>First Name:
         <label>
           <input type="text" name="First Name" id="First Name" size="30" value="<?php
