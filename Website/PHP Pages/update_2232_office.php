@@ -16,5 +16,11 @@ $openHours = $_POST['OpenHours'];
 $postal = $_POST['Postal'];
 mysqli_query($connection,"INSERT INTO offices (officeCode, name, officeType, typeCode, streetAddress, suburb, postcode, state, openHours, postal) VALUES ('$officeCode', '$name', '$officeType', '$typeCode', '$streetAddress', '$suburb', '$postcode', '$state', '$openHours', '$postal') 
 ON DUPLICATE KEY UPDATE officeCode = '$officeCode', name = '$name', officeType = '$officeType', typeCode = '$typeCode', streetAddress = '$streetAddress', suburb = '$suburb', postcode = '$postcode', state = '$state', openHours = '$openHours', postal = '$postal'") or die(mysql_error());//, '$officeType', '$typeCode', '$streetAddress', '$suburb', '$postcode', '$state', '$openHours', '$postal', '$long', '$lat')");
-header('Location: office_admin.php')
+$logID = $_SESSION['logID'];
+$query = "SELECT isAdmin FROM staff WHERE staffID=$logID";
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_array($result,MYSQLI_NUM);
+if ($row[0]==1) {header ('Location: office_admin.php');}
+else {header ('Location: office_manager.php');}
+mysqli_close($connection);
 ?>
