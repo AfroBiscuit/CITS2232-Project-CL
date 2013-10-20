@@ -152,11 +152,11 @@ echo $row[0];
 	  <p>Managers: <?php
 $query = "SELECT firstName, lastName, staffID FROM staff WHERE staffID in (SELECT staffID FROM memberships WHERE officeCode=\"$officeCode\" and isManager = '1')";
 $result = mysqli_query($connection, $query);
-echo "<p>";
 while ($row = mysqli_fetch_array($result,MYSQLI_NUM)) {
+echo "<p>";
 echo $row[0],$row[1];
-}
 echo "</p>";
+}
 ?>
 	</p>
 </td>

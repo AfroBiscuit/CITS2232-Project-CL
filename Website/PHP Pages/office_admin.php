@@ -153,11 +153,11 @@ echo $row[0];
 	<p>Managers: <?php
 $query = "SELECT firstName, lastName, staffID FROM staff WHERE staffID in (SELECT staffID FROM memberships WHERE officeCode=\"$officeCode\" and isManager = '1')";
 $result = mysqli_query($connection, $query);
-echo "<p>";
 while ($row = mysqli_fetch_array($result,MYSQLI_NUM)) {
+echo "<p>";
 echo $row[0],$row[1];
-}
 echo "</p>";
+}
 ?>
 	</p>
       <p align="center">
@@ -169,11 +169,11 @@ echo "</p>";
     <td colspan="5" valign="top" bgcolor="#FFFFFF"><p><?php
 $query = "SELECT firstName, lastName, staffID FROM staff WHERE staffID in (SELECT staffID FROM memberships WHERE officeCode=\"$officeCode\")";
 $result = mysqli_query($connection, $query);
-echo "<p>";
 while($row = mysqli_fetch_array($result,MYSQLI_NUM)) {
+echo "<p>";
 echo "<form id=\"staff\" name=\"staff\" method=\"post\" action=\"admindetails.php\"><input name=\"$row[0],$row[1]\" type=\"submit\" id=\"$row[0],$row[1]\" value=\"$row[0],$row[1]\" /><input name=\"staffID\" type=\"hidden\" id=\"staffID\" value=\"$row[2]\" /></form><form id=\"makemanager\" name=\"makemanager\" method=\"post\" action=\"makemanager.php\"><input name=\"makemanager\" type=\"submit\" id=\"makemanager\" value=\"Make Manager\" /><input name=\"staffID\" type=\"hidden\" id=\"staffID\" value=\"$row[2]\" /></form>";
-}
 echo "</p>";
+}
 mysqli_close($connection);?>
     <form id="form7" name="form7" method="post" action="join_office.php"><p align="center">
       <input type="submit" name="join_office" id="join_office" value="Join Office" />
