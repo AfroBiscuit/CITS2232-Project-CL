@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS`login_details` (
-  `username` VARCHAR(4) NOT NULL,
+  `username` VARCHAR(45) NOT NULL,
   `pass` VARCHAR(45) NULL,
   `userID` int(1) NULL,
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
