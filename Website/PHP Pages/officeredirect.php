@@ -1,7 +1,7 @@
 <?php
 session_start();
 $officeID = $_SESSION['officeID'];
-$logID = $SESSION['logID'];
+$logID = $_SESSION['logID'];
 $connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
 mysqli_select_db($connection, "centrelink");
 $query = "SELECT isAdmin FROM staff WHERE staffID=$logID";
