@@ -15,5 +15,5 @@ In order to view the website port 80 must be tunnelled over ssh and accessed via
 http://localhost/index.html in a web browser.
 As of the submission deadline the php on the server was not working, so all
 files necessary to run the website locally are attached. This requires a SQL
-server and PHP interpreter to be installed on the computer. WAMP was used for
-this during development (http://www.wampserver.com/en/).
+server and PHP interpreter to be installed on the computer. WAMP was used by us
+for this during development (http://www.wampserver.com/en/).
