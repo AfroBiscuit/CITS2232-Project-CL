@@ -78,7 +78,7 @@ body {
  <tr>
     <td width="13" height="468" valign="top" bgcolor="#FFFFFF"><span class="style2"></span></td>
     <td width="439" bgcolor="#FFFFFF" valign="top"><p align="left">Office Code: <?php
-$officeCode = $_POST['officeCode'];
+$officeCode = $_SESSION['officeID'];
 $connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
 mysqli_select_db($connection, "centrelink");
 echo $officeCode;

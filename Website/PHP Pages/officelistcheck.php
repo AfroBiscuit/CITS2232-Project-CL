@@ -7,6 +7,6 @@ $query = "SELECT isAdmin FROM staff WHERE staffID=$logID";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 if ($row[0]==1) {header ('Location: adminofficelist.php');}
-else {header ('Location: managerofficelist.php');}
+else {header ('Location: officelist.php');}
 mysqli_close($connection);
 ?>
