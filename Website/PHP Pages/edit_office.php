@@ -80,7 +80,7 @@ body {
     <td width="439" bgcolor="#FFFFFF" valign="top"><form id="form4" name="form4" method="post" action="update_2232_office.php">
       <p align="left">Office Code: 
         <label>
-        <input type="text" name="OfficeCode" id="OfficeCode" size="7" value="<?php
+        <input type="text" name="Office Code" id="Office Code" size="7" value="<?php
 $officeCode = $_SESSION['officeID'];
 $connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
 mysqli_select_db($connection, "centrelink");
@@ -89,7 +89,7 @@ echo $officeCode;
         </label>
       </p>
       <p>Office Name:
-        <input type="text" name="OfficeName" id="OfficeName" size="30" value="<?php
+        <input type="text" name="Office Name" id="Office Name" size="30" value="<?php
 $query = "SELECT name FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
@@ -97,7 +97,7 @@ echo $row[0];
 ?>"/>
       </p>
       <p>Office Type:
-        <input type="text" name="OfficeType" id="OfficeType" size="30" value="<?php
+        <input type="text" name="Office Type" id="Office Type" size="30" value="<?php
 $query = "SELECT officeType FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
@@ -105,7 +105,7 @@ echo $row[0];
 ?>"/>
       </p>
       <p>Type Code:
-        <select name="TypeCode" id="TypeCode">
+        <select name="Type Code" id="Type Code">
         <option selected="selected"><?php
 $query = "SELECT typeCode FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
@@ -123,7 +123,7 @@ echo $row[0];
           </select>
       </p>
       <p>Street Address: 
-        <input type="text" name="StreetAddress" id="StreetAddress" size="50" value="<?php
+        <input type="text" name="Street Address" id="Street Address" size="50" value="<?php
 $query = "SELECT streetAddress FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
@@ -175,7 +175,7 @@ echo $row[0];
 ?>"/>
       </p>
       <p>Open Hours:
-        <input type="text" name="OpenHours" id="OpenHours" size="50" value="<?php
+        <input type="text" name="Open Hours" id="Open Hours" size="50" value="<?php
 $query = "SELECT openHours FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
