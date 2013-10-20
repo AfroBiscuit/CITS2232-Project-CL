@@ -81,7 +81,7 @@ body {
       <p align="left">Office Code: 
         <label>
         <input type="text" name="Office Code" id="Office Code" size="7" value="<?php
-$officeCode = $_POST['officeCode'];
+$officeCode = $_SESSION['officeID'];
 $connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
 mysqli_select_db($connection, "centrelink");
 echo $officeCode;
