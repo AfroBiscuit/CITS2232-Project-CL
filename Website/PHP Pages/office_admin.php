@@ -161,7 +161,9 @@ $query = "SELECT firstName, lastName, staffID FROM staff WHERE staffID in (SELEC
 $result = mysqli_query($connection, $query);
 echo "<p>";
 while($row = mysqli_fetch_array($result,MYSQLI_NUM)) {
-echo "<form id=\"staff\" name=\"staff\" method=\"post\" action=\"admindetails.php\"><input name=\"$row[0],$row[1]\" type=\"submit\" id=\"$row[0],$row[1]\" value=\"$row[0],$row[1]\" /><input name=\"staffID\" type=\"hidden\" id=\"staffID\" value=\"$row[2]\" /></form>" ;
+echo "<form id=\"staff\" name=\"staff\" method=\"post\" action=\"admindetails.php\"><input name=\"$row[0],$row[1]\" type=\"submit\" id=\"$row[0],$row[1]\" value=\"$row[0],$row[1]\" /><input name=\"staffID\" type=\"hidden\" id=\"staffID\" value=\"$row[2]\" /></form>";
+echo "<form id=\"makemanager\" name=\"makemanager\" method=\"post\" action=\"makemanager.php\"><input name=\"makemanager\" type=\"submit\" id=\"makemanager\" value=\"Make Manager\" /><input name=\"staffID\" type=\"hidden\" id=\"staffID\" value=\"$row[2]\" /></form>";
+
 }
 echo "</p>";
 mysqli_close($connection);?>
