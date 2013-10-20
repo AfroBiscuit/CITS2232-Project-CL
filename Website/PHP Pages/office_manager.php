@@ -150,7 +150,17 @@ $query = "SELECT latitude FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
-?></p>
+?></p><p>Managers: <?php
+$query = "SELECT firstName, lastName, staffID FROM staff WHERE staffID in (SELECT staffID FROM memberships WHERE officeCode=\"$officeCode\" and isManager = '1')";
+$result = mysqli_query($connection, $query);
+echo "<p>";
+while ($row = mysqli_fetch_array($result,MYSQLI_NUM)) {
+echo $row[0],$row[1];
+}
+echo "</p>";
+?>
+	</p>
+
       <p align="center">
           <label>
           <input name = "officeCode" type = "hidden" id = "officeCode" value = "<?php echo $officeCode ?>" /><input type="submit" name="edit" id="edit" value="Edit" />

@@ -149,11 +149,6 @@ mysqli_close($connection);
           </select>
         </label>
       </p>
-      <p>Within Radius: 
-        <label>
-        <input type="text" name="searchradius" id="searchradius" size="10" />
-        </label>
-      </p>
       <p align="center">
         <label>
         <input type="submit" name="search" id="search" value="Search" />

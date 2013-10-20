@@ -84,7 +84,6 @@ body {
 	$suburb = $_POST['searchsuburb'];
 	$postcode = $_POST['searchpostcode'];
 	$state = $_POST['searchstate'];
-	$radius = $_POST['searchradius'];
 	$connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
 mysqli_select_db($connection, "centrelink");
 $query = "SELECT name, officeCode FROM offices WHERE name LIKE '%$name%' and typecode LIKE '%$typecode%' and streetaddress LIKE '%$street%' and suburb LIKE '%$suburb%' and postcode LIKE '%$postcode%' and state LIKE '%$state%'";

@@ -148,7 +148,18 @@ $query = "SELECT latitude FROM offices WHERE officeCode=\"$officeCode\"";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
 echo $row[0];
-?></p></td>
+?></p>
+	  <p>Managers: <?php
+$query = "SELECT firstName, lastName, staffID FROM staff WHERE staffID in (SELECT staffID FROM memberships WHERE officeCode=\"$officeCode\" and isManager = '1')";
+$result = mysqli_query($connection, $query);
+echo "<p>";
+while ($row = mysqli_fetch_array($result,MYSQLI_NUM)) {
+echo $row[0],$row[1];
+}
+echo "</p>";
+?>
+	</p>
+</td>
     <td colspan="5" valign="top" bgcolor="#FFFFFF"><?php
 $query = "SELECT firstName, lastName, staffID FROM staff WHERE staffID in (SELECT staffID FROM memberships WHERE officeCode=\"$officeCode\")";
 $result = mysqli_query($connection, $query);
