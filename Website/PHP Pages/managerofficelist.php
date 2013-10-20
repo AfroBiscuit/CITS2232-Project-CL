@@ -5,7 +5,7 @@
 <!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
 <title>Offices</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="mm_travel2.css" type="text/css" />
+<link rel="stylesheet" href="../mm_travel2.css" type="text/css" />
 <script language="JavaScript" type="text/javascript">
 //--------------- LOCALIZEABLE GLOBALS ---------------
 var d=new Date();
@@ -35,7 +35,8 @@ body {
 <body>
 <table width="98%" border="0" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF">
   <tr bgcolor="#3366CC">
-    <td colspan="4" rowspan="2" bgcolor="#FFFFFF"><img src="centrelink2.jpg" width="456" height="133" /></td>
+    <td colspan="4" rowspan="2" bgcolor="#FFFFFF">
+	<img src="../centrelink2.jpg" width="456" height="133" /></td>
     <td width="290" height="112" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo"><div align="left">Centrelink Offices</div></td>
     <td width="38" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" class="style1" id="logo">&nbsp;</td>
     <td width="4" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FF9900" class="style1" id="logo">&nbsp;</td>
@@ -64,7 +65,7 @@ body {
   </tr>
 
   <tr bgcolor="#CCFF99">
-  	<td height="19" colspan="8" bgcolor="#FF9900">&nbsp;<a href="mydetails.php">Details</a>&nbsp;&nbsp;&nbsp;<a href="full_list_admin.php">All Offices</a></td>
+  	<td height="19" colspan="8" bgcolor="#FF9900">&nbsp;<a href="details.html">Details</a></td>
   </tr>
  <tr>
     <td colspan="8" bgcolor="#FF9900"><img src="mm_spacer.gif" alt="" width="1" height="1" border="0" /></td>
@@ -76,13 +77,6 @@ body {
    <td colspan="6" valign="top" bgcolor="#FFFFFF"><h1>Search Offices</h1></td>
  </tr>
  <tr>
-   <td height="27" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-   <td bgcolor="#FFFFFF" valign="top">&nbsp;</td>
-   <td colspan="6" valign="top" bgcolor="#FFFFFF"><div align="center"><form id="form7" name="form7" method="post" action="new_office.php">
-     <input type="submit" name="newoffice" id="newoffice" value="New Office" />
-   </form></div></td>
- </tr>
- <tr>
     <td width="13" height="504" valign="top" bgcolor="#FFFFFF"><span class="style2"></span></td>
     <td width="439" bgcolor="#FFFFFF" valign="top"><?php
 $staffID=$logID;
@@ -92,14 +86,14 @@ $query = "SELECT name, officeCode FROM offices WHERE officeCode in (SELECT offic
 $result = mysqli_query($connection, $query);
 echo "<p>";
 while($row = mysqli_fetch_array($result,MYSQLI_NUM)) {
-echo "<form id=\"office\" name=\"office\" method=\"post\" action=\"office_admincheck.php\"><input name=\"$row[0]\" type=\"submit\" id=\"$row[0]\" value=\"$row[0]\" /><input name=\"officeCode\" type=\"hidden\" id=\"officeCode\" value=\"$row[1]\" /></form>" ;
+echo "<form id=\"office\" name=\"office\" method=\"post\" action=\"office_manager.php\"><input name=\"$row[0]\" type=\"submit\" id=\"$row[0]\" value=\"$row[0]\" /><input name=\"officeCode\" type=\"hidden\" id=\"officeCode\" value=\"$row[1]\" /></form>" ;
 }
 echo "</p>";
 mysqli_close($connection);
 ?></td>
     <td colspan="6" valign="top" bgcolor="#FFFFFF"><span class="style2"><img src="mm_spacer.gif" alt="" width="305" height="1" border="0" /><br />
-	</span><form id="form3" name="form3" method="post" action="searchresults_admin.php">
-	  <p>Office Name: 
+	</span><form id="form3" name="form3" method="post" action="searchresults.php">
+      <p>Office Name: 
 	  <label>
 	  <input type="text" name="searchname" id="searchname" size="30" />
 	  </label>
