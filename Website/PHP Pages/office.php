@@ -165,7 +165,7 @@ $query = "SELECT firstName, lastName, staffID FROM staff WHERE staffID in (SELEC
 $result = mysqli_query($connection, $query);
 while($row = mysqli_fetch_array($result,MYSQLI_NUM)) {
 echo "<p>";
-echo $row[0],$row[1];
+echo $row[0] . " " . $row[1];
 echo "</p>";
 }
 mysqli_close($connection);?>

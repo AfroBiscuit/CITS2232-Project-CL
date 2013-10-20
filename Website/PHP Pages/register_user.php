@@ -3,7 +3,7 @@
 $connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
 mysqli_select_db($connection, "centrelink");
 //Sending form data to sql db.
-start_session();
+session_start();
 $query = "SELECT MAX(staffID) FROM staff";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);

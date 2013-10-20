@@ -80,7 +80,7 @@ body {
     <td width="439" bgcolor="#FFFFFF" valign="top"><form id="form4" name="form4" method="post" action="update_2232_user.php">
       <p>First Name:
         <label>
-          <input type="text" name="First Name" id="First Name" size="30" value="<?php
+          <input type="text" name="FirstName" id="FirstName" size="30" value="<?php
 $staffID = $_SESSION['staffID'];
 $connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
 mysqli_select_db($connection, "centrelink");
@@ -92,7 +92,7 @@ echo $row[0];
           </label>
       </p>
       <p>Last Name:
-        <input type="text" name="Last Name" id="Last Name" size="30" value="<?php
+        <input type="text" name="LastName" id="LastName" size="30" value="<?php
 $query = "SELECT lastName FROM staff WHERE staffID=$staffID";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
@@ -108,7 +108,7 @@ echo $row[0];
 ?>"/>
       </p>
       <p>Street Address:
-        <input type="text" name="Street Address" id="Street Address" size="50" value="<?php
+        <input type="text" name="StreetAddress" id="StreetAddress" size="50" value="<?php
 $query = "SELECT streetAddress FROM staff WHERE staffID=$staffID";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($result,MYSQLI_NUM);
