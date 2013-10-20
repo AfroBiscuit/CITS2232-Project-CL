@@ -77,17 +77,17 @@ body {
  </tr>
  <tr>
     <td width="13" height="504" valign="top" bgcolor="#FFFFFF"><span class="style2"></span></td>
-    <td width="439" bgcolor="#FFFFFF" valign="top"><form id="form4" name="form4" method="post" action="office_admin.php">
+    <td width="439" bgcolor="#FFFFFF" valign="top"><form id="form4" name="form4" method="post" action="new_2232_office.php">
       <p align="left">Office Code: 
         <label>
-        <input type="text" name="Office Code" id="Office Code" size="7" />
+        <input type="text" name="OfficeCode" id="OfficeCode" size="7" />
         </label>
       </p>
       <p>Office Name:
-        <input type="text" name="Office Name" id="Office Name" size="30" />
+        <input type="text" name="OfficeName" id="OfficeName" size="30" />
       </p>
       <p>Office Type:
-        <input type="text" name="Office Type" id="Office Type" size="30" />
+        <input type="text" name="OfficeType" id="OfficeType" size="30" />
       </p>
       <p>Type Code:
         <select name="searchtypecode" id="searchtypecode">
@@ -103,7 +103,7 @@ body {
 
       </p>
       <p>Street Address: 
-        <input type="text" name="Street Address" id="Street Address" size="50"  />
+        <input type="text" name="StreetAddress" id="StreetAddress" size="50"  />
       </p>
       <p>Suburb: 
         <input type="text" name="Suburb" id="Suburb" size="30" />
@@ -129,7 +129,7 @@ body {
         <input type="text" name="Postal" id="Postal" size="40" />
       </p>
       <p>Open Hours:
-        <input type="text" name="Open Hours" id="Open Hours" size="50" />
+        <input type="text" name="OpenHours" id="OpenHours" size="50" />
       </p>
       <p>Longitude:
         <input type="text" name="Longitude" id="Longitude" />
