@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
   `firstName` VARCHAR(45) NULL,
   `lastName` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
-  `streetAddsress` VARCHAR(45) NULL,
+  `streetAddress` VARCHAR(45) NULL,
   `suburb` VARCHAR(45) NULL,
   `postcode` INT NULL,
   `state` VARCHAR(3) NULL,

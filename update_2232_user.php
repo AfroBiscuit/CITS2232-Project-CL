@@ -1,22 +1,20 @@
 <?php
 //Connecting to sql db.
- $connect = mysqli_connect('127.0.0.1', 'root') or die(mysql_error(mysqli_connect())); 
- mysqli_select_db($connect, "test"); 
+$connection = mysqli_connect('ec2-54-252-239-151.ap-southeast-2.compute.amazonaws.com', 'root');
+mysqli_select_db($connection, "centrelink");
 //Sending form data to sql db.
-$officeCode = $_POST['officeCode'];
-$name = $_POST['name'];
-$officeType = $_POST['officeType'];
-$typeCode = $_POST['typeCode'];
-$streetAddress = $_POST['streetAddress'];
-$suburb = $_POST['suburb'];
-$postcode = $_POST['postcode'];
-$state = $_POST['state'];
-$openHours = $_POST['openHours'];
-$postal = $_POST['postal'];
-//$long = $_POST['longitude'];
-//$lat = $_POST['latitude'];
-mysqli_query($connect,"INSERT INTO office (officeCode, name, officeType, typeCode, streetAddress, suburb, postcode, state, openHours, postal) VALUES ('$officeCode', '$name', '$officeType', '$typeCode', '$streetAddress', '$suburb', '$postcode', '$state', '$openHours', '$postal') 
-ON DUPLICATE KEY UPDATE name = '$name', officeType = '$officeType', typeCode = '$typeCode', streetAddress = '$streetAddress', suburb = '$suburb', postcode = '$postcode', state = '$state', openHours = '$openHours', postal = '$postal'") or die(mysql_error());//, '$officeType', '$typeCode', '$streetAddress', '$suburb', '$postcode', '$state', '$openHours', '$postal', '$long', '$lat')");
+session_start();
+$staffID = $_SESSION['staffID'];
+$fn = $_POST['FirstName'];
+$ln = $_POST['LastName'];
+$em = $_POST['Email'];
+$st = $_POST['StreetAddress'];
+$sub = $_POST['Suburb'];
+$pc = $_POST['Postcode'];
+$sta = $_POST['searchstate'];
+$ph = $_POST['Phone'];
+mysqli_query($connection,"INSERT INTO staff (staffID, firstName, lastName, email, streetAddress, suburb, postcode, state, phone) VALUES ('$staffID', '$fn', '$ln', '$em', '$st', '$sub', '$pc', '$sta', '$ph')
+ON DUPLICATE KEY UPDATE staffID = $staffID, firstName = '$fn', lastName = '$ln', email = '$em', streetAddress = '$st', suburb = '$sub', postcode = '$pc', state = '$sta', phone = '$ph'") or die(mysql_error());
 mysqli_close();
-header('Location: details_user.html')
+header('Location: details.php')
 ?>
